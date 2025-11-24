@@ -1,0 +1,20 @@
+/* style.css */
+
+body {
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+#grid {
+  width: 480px;
+  height: 480px;
+  border: 1px solid #ccc;
+  margin-top: 12px;
+  display: grid; /* we’ll use this later to make the squares */
+}
+
+.cell {
+  border: 1px solid #eee;
+  box-sizing: border-box; /* so borders don’t break the layout */
+}
+
