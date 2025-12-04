@@ -1,16 +1,42 @@
 
-const grid = document.querySelector("#grid");
+const gridContainer = document.querySelector("#gridContainer");
+const GRID_SIZE = 480;
 
-function makeGrid(size) {
-grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
-grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+createGrid(16); // default
 
-  for (let i = 0; i < size * size; i++) {
-    const cell = document.createElement("div");
-    // give it a class, e.g. "cell"
-    cell.classList.add("cell");
-    grid.appendChild(cell);
-  }
-};
+// -------------------------------
+// CREATE GRID
+// -------------------------------
+function createGrid(n) {
+    gridContainer.innerHTML = ""; // clear old
 
-makeGrid(32);
+    for (let i = 0; i < n * n; i++) {
+        const square = document.createElement("div");
+        square.classList.add("square");
+        square.style.width = `calc(100% / ${n})`;
+        square.style.height = `calc(100% / ${n})`;
+
+        square.addEventListener("mouseover", () => {
+        square.style.backgroundColor = "#ccc";
+        });
+
+        gridContainer.appendChild(square);
+    }
+}
+
+// -------------------------------
+// RESET BUTTON
+// -------------------------------
+document.querySelector("#resetBtn").addEventListener("click", () => {
+    let input = prompt("Number of squares per side (1–100):");
+
+    if (input === null) return; // user cancelled
+    input = parseInt(input);
+
+    if (!Number.isInteger(input) || input < 1 || input > 100) {
+        alert("Enter a number between 1 and 100.");
+        return;
+    }
+
+    createGrid(input);
+});

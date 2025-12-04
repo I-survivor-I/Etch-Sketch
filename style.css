@@ -1,20 +1,42 @@
-/* style.css */
-
-body {
-  font-family: sans-serif;
-  padding: 20px;
+html, body {
+  height: 100%;                /* makes the page fill the full viewport height */
+  margin: 0;                   /* removes default browser margins */
+  background-color: rgb(30, 30, 30); /* dark background color for the page */
 }
 
-#grid {
+#wrapperMain {
+  display: flex;
+  height: 100%;                /* makes wrapper fill the full page height so vertical centering can work */
+  flex-direction: column;        /**/
+  justify-content: center;     /* centers the grid horizontally */
+  align-items: center;         /* centers the grid vertically */
+}
+
+#wrapperHeader {
+  display: flex;
+}
+
+#headerContainer {
+  display: flex;
+  justify-content: flex-start;
+  width: 480px;                /* fixed width of the header */ 
+  margin-bottom: 10px;
+}
+
+#wrapperGrid {
+  display: flex;
+}
+
+#gridContainer {
+  display: flex;
+  flex-wrap: wrap;
   width: 480px;
   height: 480px;
-  border: 1px solid #ccc;
-  margin-top: 12px;
-  display: grid; /* we’ll use this later to make the squares */
 }
 
-.cell {
-  border: 1px solid #eee;
-  box-sizing: border-box; /* so borders don’t break the layout */
+.square {
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
+
 
