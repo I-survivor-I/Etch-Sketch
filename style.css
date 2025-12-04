@@ -30,8 +30,8 @@ html, body {
 #gridContainer {
   display: flex;
   flex-wrap: wrap;
-  width: 480px;
-  height: 480px;
+  width: min(480px, 90vw);
+  height: min(480px, 90vw);
 }
 
 .square {
